@@ -35,8 +35,8 @@ namespace CFGShare
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 ogfilename = openFileDialog1.FileName;
-                
-                
+                textBox1.Text = ogfilename;
+
             }
         }
         private void replacer()
@@ -53,7 +53,7 @@ namespace CFGShare
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string destinationFilebaseog = @"C:\temp\CFGShare\";
+            string destinationFilebaseog = @"C:\temp\CFGShare\Backup\";
             string resultog;
 
             resultog = Path.GetFileName(ogfilename);
@@ -80,6 +80,23 @@ namespace CFGShare
         private void button4_Click(object sender, EventArgs e)
         {
             replacer();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string resultog;
+
+            resultog = Path.GetFileName(ogfilename);
+            try
+            {
+                File.Copy(replacefilename, ogfilename,true);
+            }
+            catch (IOException iox) { };
         }
     }
 }
