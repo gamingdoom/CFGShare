@@ -1,0 +1,10 @@
+C:\Users\Pranay\source\repos\CFGShare\CFGShare\bin\Debug\CFGShare.exe.config
+C:\Users\Pranay\source\repos\CFGShare\CFGShare\bin\Debug\CFGShare.exe
+C:\Users\Pranay\source\repos\CFGShare\CFGShare\bin\Debug\CFGShare.pdb
+C:\Users\Pranay\source\repos\CFGShare\CFGShare\obj\Debug\CFGShare.csprojAssemblyReference.cache
+C:\Users\Pranay\source\repos\CFGShare\CFGShare\obj\Debug\CFGShare.Form1.resources
+C:\Users\Pranay\source\repos\CFGShare\CFGShare\obj\Debug\CFGShare.Properties.Resources.resources
+C:\Users\Pranay\source\repos\CFGShare\CFGShare\obj\Debug\CFGShare.csproj.GenerateResource.cache
+C:\Users\Pranay\source\repos\CFGShare\CFGShare\obj\Debug\CFGShare.csproj.CoreCompileInputs.cache
+C:\Users\Pranay\source\repos\CFGShare\CFGShare\obj\Debug\CFGShare.exe
+C:\Users\Pranay\source\repos\CFGShare\CFGShare\obj\Debug\CFGShare.pdb
