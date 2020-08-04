@@ -16,8 +16,8 @@ namespace CFGShare
 {
     public partial class Form1 : Form
     {
-        string ogfilename = String.Empty;
-        string replacefilename = String.Empty;
+        string ogfilename = "";
+        string replacefilename = "";
         public Form1()
         {
             InitializeComponent();
@@ -62,7 +62,11 @@ namespace CFGShare
             resultog = Path.GetFileName(ogfilename);
             try
             {
-                File.Copy(ogfilename, destinationFilebaseog + resultog, true);
+                if (ogfilename != "")
+                {
+                    File.Copy(ogfilename, destinationFilebaseog + resultog, true);
+                }
+
             }
             catch (IOException iox) { };
         }
@@ -75,7 +79,11 @@ namespace CFGShare
             resultog = Path.GetFileName(ogfilename);
             try
             {
-                File.Copy(destinationFilebaseog + resultog, ogfilename, true);
+                if (ogfilename != "")
+                {
+                    File.Copy(destinationFilebaseog + resultog, ogfilename, true);
+                }
+                
             }
             catch (IOException iox) { };
         }
@@ -97,7 +105,10 @@ namespace CFGShare
             resultog = Path.GetFileName(ogfilename);
             try
             {
-                File.Copy(replacefilename, ogfilename, true);
+                if (ogfilename != "")
+                {
+                    File.Copy(replacefilename, ogfilename, true);
+                }
             }
             catch (IOException iox) { };
         }
