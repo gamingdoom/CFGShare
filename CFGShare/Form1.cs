@@ -18,6 +18,8 @@ namespace CFGShare
     {
         string ogfilename = "";
         string replacefilename = "";
+        string bundleready;
+        bool fileok = false;
         public Form1()
         {
             InitializeComponent();
@@ -146,6 +148,73 @@ namespace CFGShare
                 string name = Path.GetFileName(folder);
                 string dest = Path.Combine(destFolder, name);
                 CopyFolder(folder, dest);
+            }
+        }
+
+        public void button7_Click(object sender, EventArgs e)
+        {
+            
+            OpenFileDialog openFileDialog3 = new OpenFileDialog();
+            if (openFileDialog3.ShowDialog() == DialogResult.OK)
+            {
+                fileok = true;
+                bundleready = openFileDialog3.FileName;
+                textBox3.Text = bundleready;
+
+            }
+        }
+        private void bundle()
+        {
+            string bundlesave;
+            string user;
+            string game;
+            string bundlename;
+            string bundleresultfile;
+            FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                bundlesave = folderBrowserDialog1.SelectedPath;
+                if (fileok == false)
+                {
+                    MessageBox.Show("Please choose a config file to bundle!");
+                }
+                else
+                {
+                    fileok = false;
+                    textBox3.Text = "";
+                    user = textBox4.Text;
+                    game = textBox5.Text;
+                    string bundleresult = bundlesave + @"\" + user + " - " + game;
+                    try
+                    {
+                        Directory.CreateDirectory(bundleresult);
+                    }
+                    catch (IOException iox) { };
+                    bundlename = Path.GetFileName(bundleready);
+                    bundleresultfile = bundleresult + @"\" + bundlename;
+                    try
+                    {
+                        File.Copy(bundleready, bundleresultfile);
+                        ZipFile.CreateFromDirectory(bundleresult, bundleresult + ".zip");
+                        Directory.Delete(bundleresult, true);
+                    }
+                    catch (IOException iox) { };
+                }
+            }
+        }
+        public void button8_Click(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "")
+            {
+                MessageBox.Show("Please input a username!");
+            }
+            else if (textBox5.Text == "")
+            {
+                MessageBox.Show("Please input a game title!");
+            }
+            else
+            {
+                bundle();
             }
         }
     }
