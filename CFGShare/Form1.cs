@@ -119,6 +119,8 @@ namespace CFGShare
             try
             {
                 Directory.Delete(@"C:\temp\CFGShare\Configs\Internet Configs\", true);
+                Directory.Delete(@"C:\temp\CFGShare\Updated\master\", true);
+                
             }
             catch (IOException iox) { };
             WebClient webClient = new WebClient();
@@ -127,6 +129,7 @@ namespace CFGShare
             try
             {
                 ZipFile.ExtractToDirectory(@"C:\temp\CFGShare\Updated\master.zip", @"C:\temp\CFGShare\Updated\master\");
+                File.Delete(@"C:\temp\CFGShare\Updated\master\CfgShareConfigs-master\README.md");
             }
             catch (IOException iox) { };
             CopyFolder(@"C:\temp\CFGShare\Updated\master\CfgShareConfigs-master\", @"C:\temp\CFGShare\Configs\Internet Configs\");
